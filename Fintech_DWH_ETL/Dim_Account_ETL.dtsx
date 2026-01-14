@@ -1,0 +1,2265 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/4/2026 11:59:52 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="AHMED-ALMAHEY"
+  DTS:CreatorName="AHMED-ALMAHEY\DELL"
+  DTS:DTSID="{CDCB97F6-F19E-4F93-BE84-765D299CF9A9}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1010.2"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Dim_Account_ETL"
+  DTS:PackageType="5"
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{9128D81A-85D0-409E-82E2-A7189525734B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT_Dim_Account_ETL"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{25593186-E941-458C-AA89-D4DD9505729D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_Dim_Account_ETL"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferMaxRows="100000"
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_Dim_Account_ETL\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_Dim_Account_ETL\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Dim_Account_ETL\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT_Dim_Account_ETL\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Derived Column.Outputs[Derived Column Output].Columns[End_Date]"
+                      dataType="dbTimeStamp"
+                      description="End_Date"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Dim_Account_ETL\Derived Column.Outputs[Derived Column Output].Columns[End_Date]"
+                      name="End_Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DBTIMESTAMP)(@[System::StartTime])</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBTIMESTAMP)(@[System::StartTime])</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Dim_Account_ETL\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT_Dim_Account_ETL\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Dim_Account_ETL\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Dim_Account_ETL\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Dim_Account_ETL\Derived Column 1"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_Dim_Account_ETL\Derived Column 1.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Dim_Account_ETL\Derived Column 1.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT_Dim_Account_ETL\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Derived Column 1.Outputs[Derived Column Output].Columns[Start_Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Dim_Account_ETL\Derived Column 1.Outputs[Derived Column Output].Columns[Start_Date]"
+                      name="Start_Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DBTIMESTAMP)(@[System::StartTime])</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBTIMESTAMP)(@[System::StartTime])</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Derived Column 1.Outputs[Derived Column Output].Columns[is_current]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Dim_Account_ETL\Derived Column 1.Outputs[Derived Column Output].Columns[is_current]"
+                      name="is_current"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_UI1)1</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_UI1)1</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Dim_Account_ETL\Derived Column 1.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT_Dim_Account_ETL\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Dim_Account_ETL\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Dim_Account_ETL\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Dim_Account_ETL\DVC_Source_Sys_Code"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DVC_Source_Sys_Code"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_Dim_Account_ETL\DVC_Source_Sys_Code.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Dim_Account_ETL\DVC_Source_Sys_Code.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT_Dim_Account_ETL\DVC_Source_Sys_Code.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\DVC_Source_Sys_Code.Outputs[Derived Column Output].Columns[Source_Sys_Code]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Dim_Account_ETL\DVC_Source_Sys_Code.Outputs[Derived Column Output].Columns[Source_Sys_Code]"
+                      name="Source_Sys_Code"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_I4)1</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_I4)1</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Dim_Account_ETL\DVC_Source_Sys_Code.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT_Dim_Account_ETL\DVC_Source_Sys_Code.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\DVC_Source_Sys_Code.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Dim_Account_ETL\DVC_Source_Sys_Code.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\DVC_Source_Sys_Code.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Dim_Account_ETL\DVC_Source_Sys_Code.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Dim_Account_ETL\Insert Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Dim_Account]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Dim_Account_ETL\Insert Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{09A440A3-F076-401A-BF8A-AB840E19704E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.Fintech_DWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].Columns[Account_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Account_id"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Account_id_bk]"
+                      lineageId="Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[Account_id]" />
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].Columns[Account_Type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Account_Type"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Account_Type]"
+                      lineageId="Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[Account_Type]" />
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].Columns[Currency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Currency"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Currency]"
+                      lineageId="Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[Currency]" />
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].Columns[Created_Date]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Created_Date"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Created_Date]"
+                      lineageId="Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[Created_Date]" />
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].Columns[status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="status"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                      lineageId="Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[status]" />
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].Columns[Is_External]"
+                      cachedDataType="bool"
+                      cachedName="Is_External"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Is_External]"
+                      lineageId="Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[Is_External]" />
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].Columns[Start_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Start_Date"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Start_Date]"
+                      lineageId="Package\DFT_Dim_Account_ETL\Derived Column 1.Outputs[Derived Column Output].Columns[Start_Date]" />
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].Columns[Source_Sys_Code]"
+                      cachedDataType="i4"
+                      cachedName="Source_Sys_Code"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Source_Sys_Code]"
+                      lineageId="Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[Source_Sys_Code]" />
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].Columns[customer_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="customer_id"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Customer_id_bk]"
+                      lineageId="Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[customer_id]" />
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].Columns[merchant_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="merchant_id"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[merchant_id_bk]"
+                      lineageId="Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[merchant_id]" />
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].Columns[is_current]"
+                      cachedDataType="ui1"
+                      cachedName="is_current"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Is_Current]"
+                      lineageId="Package\DFT_Dim_Account_ETL\Derived Column 1.Outputs[Derived Column Output].Columns[is_current]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Account_SK]"
+                      dataType="i4"
+                      name="Account_SK" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Account_id_bk]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Account_id_bk" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Account_Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Account_Type" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Currency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Currency" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Created_Date]"
+                      dataType="wstr"
+                      length="10"
+                      name="Created_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Status" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Is_External]"
+                      dataType="bool"
+                      name="Is_External" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Start_Date]"
+                      dataType="dbTimeStamp"
+                      name="Start_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[End_Date]"
+                      dataType="dbTimeStamp"
+                      name="End_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Is_Current]"
+                      dataType="bool"
+                      name="Is_Current" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Source_Sys_Code]"
+                      dataType="i4"
+                      name="Source_Sys_Code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Customer_id_bk]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Customer_id_bk" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[merchant_id_bk]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="merchant_id_bk" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Dim_Account_ETL\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Dim_Account_ETL\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Dim_Account_ETL\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Dim_Account_ETL\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[Dim_Account] SET [End_Date] = ?
+,is_current = 0
+
+ WHERE [Account_id_bk] = ? AND [Customer_id_bk] = ? AND [merchant_id_bk] = ? AND [End_Date] IS NULL</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Dim_Account_ETL\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="{09A440A3-F076-401A-BF8A-AB840E19704E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.Fintech_DWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_Dim_Account_ETL\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\OLE DB Command.Inputs[OLE DB Command Input].Columns[Account_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Account_id"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[Account_id]" />
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\OLE DB Command.Inputs[OLE DB Command Input].Columns[customer_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="customer_id"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[customer_id]" />
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\OLE DB Command.Inputs[OLE DB Command Input].Columns[merchant_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="merchant_id"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[merchant_id]" />
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\OLE DB Command.Inputs[OLE DB Command Input].Columns[End_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="End_Date"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\DFT_Dim_Account_ETL\Derived Column.Outputs[Derived Column Output].Columns[End_Date]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="dbTimeStamp"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Dim_Account_ETL\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\DFT_Dim_Account_ETL\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Dim_Account_ETL\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\DFT_Dim_Account_ETL\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Dim_Account_ETL\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Dim_Account_ETL\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Dim_Account_ETL\OLE DB Command 1"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command 1"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[Dim_Account] SET [Is_External] = ? WHERE [Account_id_bk] = ? AND [Customer_id_bk] = ? AND [merchant_id_bk] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Dim_Account_ETL\OLE DB Command 1.Connections[OleDbConnection]"
+                  connectionManagerID="{09A440A3-F076-401A-BF8A-AB840E19704E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.Fintech_DWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_Dim_Account_ETL\OLE DB Command 1.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[Account_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Account_id"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[Account_id]" />
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[customer_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="customer_id"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[customer_id]" />
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[Is_External]"
+                      cachedDataType="bool"
+                      cachedName="Is_External"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[Is_External]" />
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[merchant_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="merchant_id"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[merchant_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="bool"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Dim_Account_ETL\OLE DB Command 1.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\DFT_Dim_Account_ETL\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Dim_Account_ETL\OLE DB Command 1.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\DFT_Dim_Account_ETL\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Dim_Account_ETL\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Dim_Account_ETL\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+              name="Slowly Changing Dimension"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SELECT statement used to create a schema rowset."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Account_id_bk], [Account_Type], [Created_Date], [Currency], [Customer_id_bk], [Is_External], [merchant_id_bk], [Source_Sys_Code], [Status],[Start_Date],[End_Date] FROM [dbo].[Dim_Account]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                  name="CurrentRowWhere">[Start_Date] IS NOT NULL AND [End_Date] IS NULL</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                  name="UpdateChangingAttributeHistory">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                  name="FailOnFixedAttributeChange">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the column name for the inferred member."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether inferred member updates are detected."
+                  name="EnableInferredMember">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies that all rows in the input are new or the transformation detects the change type."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Connections[LookupConnection]"
+                  connectionManagerID="{09A440A3-F076-401A-BF8A-AB840E19704E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.Fintech_DWH]"
+                  description="Defines the connection to use for lookups in the dimension table"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  name="Slowly Changing Dimension Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Account_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Account_id"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Account_id_bk]"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[Account_id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Account_Type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Account_Type"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Account_Type]"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[Account_Type]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Created_Date]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Created_Date"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Created_Date]"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[Created_Date]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Currency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Currency"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Currency]"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[Currency]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[customer_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="customer_id"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Customer_id_bk]"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[customer_id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Is_External]"
+                      cachedDataType="bool"
+                      cachedName="Is_External"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Is_External]"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[Is_External]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[merchant_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="merchant_id"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[merchant_id_bk]"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[merchant_id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Source_Sys_Code]"
+                      cachedDataType="i4"
+                      cachedName="Source_Sys_Code"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Source_Sys_Code]"
+                      lineageId="Package\DFT_Dim_Account_ETL\DVC_Source_Sys_Code.Outputs[Derived Column Output].Columns[Source_Sys_Code]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="status"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Status]"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[status]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">3</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Account_id_bk]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Account_id_bk" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Account_Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Account_Type" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Created_Date]"
+                      dataType="wstr"
+                      length="10"
+                      name="Created_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Currency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Currency" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Customer_id_bk]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Customer_id_bk" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Is_External]"
+                      dataType="bool"
+                      name="Is_External" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[merchant_id_bk]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="merchant_id_bk" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Source_Sys_Code]"
+                      dataType="i4"
+                      name="Source_Sys_Code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Status" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Start_Date]"
+                      dataType="dbTimeStamp"
+                      name="Start_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[End_Date]"
+                      dataType="dbTimeStamp"
+                      name="End_Date" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Outputs[Unchanged Output]"
+                  description="Unchanged rows"
+                  exclusionGroup="1"
+                  name="Unchanged Output"
+                  synchronousInputId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Outputs[New Output]"
+                  description="New rows"
+                  exclusionGroup="1"
+                  name="New Output"
+                  synchronousInputId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Outputs[Fixed Attribute Output]"
+                  description="Rows with changes in columns tagged FixedAttribute"
+                  exclusionGroup="1"
+                  name="Fixed Attribute Output"
+                  synchronousInputId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]"
+                  description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                  exclusionGroup="1"
+                  name="Changing Attribute Updates Output"
+                  synchronousInputId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]"
+                  description="HistoricalAttribute (Type 2) changes result in these new rows"
+                  exclusionGroup="2"
+                  name="Historical Attribute Inserts Output"
+                  synchronousInputId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]"
+                  description="Information to update unpopulated initial dimension row"
+                  exclusionGroup="1"
+                  name="Inferred Member Updates Output"
+                  synchronousInputId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="T-SQL_Dim_Account_Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select a.Account_id, Account_Type, Currency, Created_Date,
+status, Is_External, merchant_id, customer_id
+from account a left join merchant_account ma
+on a.account_id = ma.account_id
+left join Customer_Account ca 
+on a.Account_id = ca.Account_id</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Connections[OleDbConnection]"
+                  connectionManagerID="{32AAC321-7B14-48E8-8F84-510F1B13FDF6}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.Fintech_DB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[Account_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].ExternalColumns[Account_id]"
+                      length="30"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[Account_id]"
+                      name="Account_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[Account_Type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].ExternalColumns[Account_Type]"
+                      length="30"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[Account_Type]"
+                      name="Account_Type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[Currency]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].ExternalColumns[Currency]"
+                      length="20"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[Currency]"
+                      name="Currency"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[Created_Date]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].ExternalColumns[Created_Date]"
+                      length="10"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[Created_Date]"
+                      name="Created_Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[status]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].ExternalColumns[status]"
+                      length="20"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[status]"
+                      name="status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[Is_External]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].ExternalColumns[Is_External]"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[Is_External]"
+                      name="Is_External"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[merchant_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].ExternalColumns[merchant_id]"
+                      length="30"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[merchant_id]"
+                      name="merchant_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[customer_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].ExternalColumns[customer_id]"
+                      length="30"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[customer_id]"
+                      name="customer_id"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].ExternalColumns[Account_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Account_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].ExternalColumns[Account_Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Account_Type" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].ExternalColumns[Currency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Currency" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].ExternalColumns[Created_Date]"
+                      dataType="wstr"
+                      length="10"
+                      name="Created_Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].ExternalColumns[status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="status" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].ExternalColumns[Is_External]"
+                      dataType="bool"
+                      name="Is_External" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].ExternalColumns[merchant_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="merchant_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].ExternalColumns[customer_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="customer_id" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Error Output].Columns[Account_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Error Output].Columns[Account_id]"
+                      name="Account_id" />
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Error Output].Columns[Account_Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Error Output].Columns[Account_Type]"
+                      name="Account_Type" />
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Error Output].Columns[Currency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Error Output].Columns[Currency]"
+                      name="Currency" />
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Error Output].Columns[Created_Date]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Error Output].Columns[Created_Date]"
+                      name="Created_Date" />
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Error Output].Columns[status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Error Output].Columns[status]"
+                      name="status" />
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Error Output].Columns[Is_External]"
+                      dataType="bool"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Error Output].Columns[Is_External]"
+                      name="Is_External" />
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Error Output].Columns[merchant_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Error Output].Columns[merchant_id]"
+                      name="merchant_id" />
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Error Output].Columns[customer_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Error Output].Columns[customer_id]"
+                      name="customer_id" />
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Dim_Account_ETL\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\DFT_Dim_Account_ETL\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Union All.Inputs[Union All Input 1].Columns[Account_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Account_id"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[Account_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[Account_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Union All.Inputs[Union All Input 1].Columns[Account_Type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Account_Type"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[Account_Type]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[Account_Type]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Union All.Inputs[Union All Input 1].Columns[Currency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Currency"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[Currency]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[Currency]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Union All.Inputs[Union All Input 1].Columns[Created_Date]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Created_Date"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[Created_Date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[Created_Date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Union All.Inputs[Union All Input 1].Columns[status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="status"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[status]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[status]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Union All.Inputs[Union All Input 1].Columns[Is_External]"
+                      cachedDataType="bool"
+                      cachedName="Is_External"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[Is_External]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[Is_External]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Union All.Inputs[Union All Input 1].Columns[merchant_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="merchant_id"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[merchant_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[merchant_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Union All.Inputs[Union All Input 1].Columns[customer_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="customer_id"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[customer_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[customer_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Union All.Inputs[Union All Input 1].Columns[Source_Sys_Code]"
+                      cachedDataType="i4"
+                      cachedName="Source_Sys_Code"
+                      lineageId="Package\DFT_Dim_Account_ETL\DVC_Source_Sys_Code.Outputs[Derived Column Output].Columns[Source_Sys_Code]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[Source_Sys_Code]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT_Dim_Account_ETL\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Union All.Inputs[Union All Input 2].Columns[Account_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Account_id"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[Account_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[Account_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Union All.Inputs[Union All Input 2].Columns[Account_Type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Account_Type"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[Account_Type]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[Account_Type]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Union All.Inputs[Union All Input 2].Columns[Currency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Currency"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[Currency]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[Currency]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Union All.Inputs[Union All Input 2].Columns[Created_Date]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Created_Date"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[Created_Date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[Created_Date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Union All.Inputs[Union All Input 2].Columns[status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="status"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[status]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[status]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Union All.Inputs[Union All Input 2].Columns[Is_External]"
+                      cachedDataType="bool"
+                      cachedName="Is_External"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[Is_External]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[Is_External]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Union All.Inputs[Union All Input 2].Columns[merchant_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="merchant_id"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[merchant_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[merchant_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Union All.Inputs[Union All Input 2].Columns[customer_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="customer_id"
+                      lineageId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[customer_id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[customer_id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Union All.Inputs[Union All Input 2].Columns[Source_Sys_Code]"
+                      cachedDataType="i4"
+                      cachedName="Source_Sys_Code"
+                      lineageId="Package\DFT_Dim_Account_ETL\DVC_Source_Sys_Code.Outputs[Derived Column Output].Columns[Source_Sys_Code]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[Source_Sys_Code]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT_Dim_Account_ETL\Union All.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[Account_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[Account_id]"
+                      name="Account_id" />
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[Account_Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[Account_Type]"
+                      name="Account_Type" />
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[Currency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[Currency]"
+                      name="Currency" />
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[Created_Date]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[Created_Date]"
+                      name="Created_Date" />
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[status]"
+                      name="status" />
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[Is_External]"
+                      dataType="bool"
+                      lineageId="Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[Is_External]"
+                      name="Is_External" />
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[merchant_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[merchant_id]"
+                      name="merchant_id" />
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[customer_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[customer_id]"
+                      name="customer_id" />
+                    <outputColumn
+                      refId="Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[Source_Sys_Code]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1].Columns[Source_Sys_Code]"
+                      name="Source_Sys_Code" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_Dim_Account_ETL.Paths[Changing Attribute Updates Output]"
+              endId="Package\DFT_Dim_Account_ETL\OLE DB Command 1.Inputs[OLE DB Command Input]"
+              name="Changing Attribute Updates Output"
+              startId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]" />
+            <path
+              refId="Package\DFT_Dim_Account_ETL.Paths[Derived Column Output]"
+              endId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+              name="Derived Column Output"
+              startId="Package\DFT_Dim_Account_ETL\DVC_Source_Sys_Code.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT_Dim_Account_ETL.Paths[Derived Column Output1]"
+              endId="Package\DFT_Dim_Account_ETL\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Derived Column Output"
+              startId="Package\DFT_Dim_Account_ETL\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT_Dim_Account_ETL.Paths[Derived Column Output2]"
+              endId="Package\DFT_Dim_Account_ETL\Insert Destination.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DFT_Dim_Account_ETL\Derived Column 1.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT_Dim_Account_ETL.Paths[Historical Attribute Inserts Output]"
+              endId="Package\DFT_Dim_Account_ETL\Derived Column.Inputs[Derived Column Input]"
+              name="Historical Attribute Inserts Output"
+              startId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]" />
+            <path
+              refId="Package\DFT_Dim_Account_ETL.Paths[New Output]"
+              endId="Package\DFT_Dim_Account_ETL\Union All.Inputs[Union All Input 1]"
+              name="New Output"
+              startId="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension.Outputs[New Output]" />
+            <path
+              refId="Package\DFT_Dim_Account_ETL.Paths[OLE DB Command Output]"
+              endId="Package\DFT_Dim_Account_ETL\Union All.Inputs[Union All Input 2]"
+              name="OLE DB Command Output"
+              startId="Package\DFT_Dim_Account_ETL\OLE DB Command.Outputs[OLE DB Command Output]" />
+            <path
+              refId="Package\DFT_Dim_Account_ETL.Paths[OLE DB Source Output]"
+              endId="Package\DFT_Dim_Account_ETL\DVC_Source_Sys_Code.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\DFT_Dim_Account_ETL.Paths[Union All Output 1]"
+              endId="Package\DFT_Dim_Account_ETL\Derived Column 1.Inputs[Derived Column Input]"
+              name="Union All Output 1"
+              startId="Package\DFT_Dim_Account_ETL\Union All.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="189,42"
+          Id="Package\DFT_Dim_Account_ETL"
+          TopLeft="227,109" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT_Dim_Account_ETL">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="163,42"
+          Id="Package\DFT_Dim_Account_ETL\Insert Destination"
+          TopLeft="151,719.5" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension"
+          TopLeft="128,209.5" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\DFT_Dim_Account_ETL\Derived Column 1"
+          TopLeft="151,617.5" />
+        <NodeLayout
+          Size="214,42"
+          Id="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source"
+          TopLeft="125.5,5.5" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\DFT_Dim_Account_ETL\OLE DB Command 1"
+          TopLeft="294,311.5" />
+        <NodeLayout
+          Size="188,42"
+          Id="Package\DFT_Dim_Account_ETL\DVC_Source_Sys_Code"
+          TopLeft="138.5,107.5" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\DFT_Dim_Account_ETL\OLE DB Command"
+          TopLeft="5.50000000000006,413.5" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\DFT_Dim_Account_ETL\Derived Column"
+          TopLeft="17.5000000000001,311.5" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\DFT_Dim_Account_ETL\Union All"
+          TopLeft="172,515.5" />
+        <EdgeLayout
+          Id="Package\DFT_Dim_Account_ETL.Paths[Derived Column Output1]"
+          TopLeft="91.5000000000001,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Dim_Account_ETL.Paths[Derived Column Output]"
+          TopLeft="232.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Dim_Account_ETL.Paths[Changing Attribute Updates Output]"
+          TopLeft="282.75,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="98.75,60"
+              Start="0,0"
+              End="98.75,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.503937007874" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.503937007874"
+                    Point2="0,20.503937007874"
+                    Point3="4,20.503937007874" />
+                  <mssgle:LineSegment
+                    End="94.75,20.503937007874" />
+                  <mssgle:CubicBezierSegment
+                    Point1="94.75,20.503937007874"
+                    Point2="98.75,20.503937007874"
+                    Point3="98.75,24.503937007874" />
+                  <mssgle:LineSegment
+                    End="98.75,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-29.15890625,25.503937007874,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Dim_Account_ETL.Paths[Union All Output 1]"
+          TopLeft="232.5,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Dim_Account_ETL.Paths[OLE DB Source Output]"
+          TopLeft="232.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Dim_Account_ETL.Paths[OLE DB Command Output]"
+          TopLeft="88.5000000000001,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="125.166666666667,60"
+              Start="0,0"
+              End="125.166666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5301794453507" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5301794453507"
+                    Point2="0,35.5301794453507"
+                    Point3="4,35.5301794453507" />
+                  <mssgle:LineSegment
+                    End="121.166666666667,35.5301794453507" />
+                  <mssgle:CubicBezierSegment
+                    Point1="121.166666666667,35.5301794453507"
+                    Point2="125.166666666667,35.5301794453507"
+                    Point3="125.166666666667,39.5301794453507" />
+                  <mssgle:LineSegment
+                    End="125.166666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Dim_Account_ETL.Paths[New Output]"
+          TopLeft="232.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="18.8333333333334,264"
+              Start="0,0"
+              End="18.8333333333334,256.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,152.332789559543" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,152.332789559543"
+                    Point2="0,156.332789559543"
+                    Point3="4,156.332789559543" />
+                  <mssgle:LineSegment
+                    End="14.8333333333334,156.332789559543" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.8333333333334,156.332789559543"
+                    Point2="18.8333333333334,156.332789559543"
+                    Point3="18.8333333333334,160.332789559543" />
+                  <mssgle:LineSegment
+                    End="18.8333333333334,256.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-17.6747200520833,161.332789559543,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Dim_Account_ETL.Paths[Historical Attribute Inserts Output]"
+          TopLeft="182.25,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-87.75,60"
+              Start="0,0"
+              End="-87.75,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.503937007874" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.503937007874"
+                    Point2="0,20.503937007874"
+                    Point3="-4,20.503937007874" />
+                  <mssgle:LineSegment
+                    End="-83.75,20.503937007874" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-83.75,20.503937007874"
+                    Point2="-87.75,20.503937007874"
+                    Point3="-87.75,24.503937007874" />
+                  <mssgle:LineSegment
+                    End="-87.75,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-118.93138671875,25.503937007874,150.1127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Dim_Account_ETL.Paths[Derived Column Output2]"
+          TopLeft="232.5,659.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Dim_Account_ETL\Insert Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Dim_Account_ETL\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{09A440A3-F076-401A-BF8A-AB840E19704E}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[Dim_Account]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[Account_id]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Account_id_bk&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[Account_Type]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Account_Type&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[Created_Date]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Created_Date&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[Currency]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Currency&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[customer_id]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Customer_id_bk&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[Is_External]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Is_External&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[merchant_id]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;merchant_id_bk&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;DVC_Source_Sys_Code.Outputs[Derived Column Output].Columns[Source_Sys_Code]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Source_Sys_Code&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;T-SQL_Dim_Account_Source.Outputs[OLE DB Source Output].Columns[status]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Status&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Union All&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;true&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;true&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn&gt;Start_Date&lt;/StartDateColumn&gt;
+  &lt;EndDateColumn&gt;End_Date&lt;/EndDateColumn&gt;
+  &lt;DateVariable&gt;System::StartTime&lt;/DateVariable&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Dim_Account_ETL\T-SQL_Dim_Account_Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
