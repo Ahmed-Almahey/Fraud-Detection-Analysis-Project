@@ -237,4 +237,5 @@ FROM Fact_Transactions;
 
 
 --Analyze the trend of fraud over time. For each month, calculate the 3-month rolling average of 
+
 --fraud transactions to identify periods with increasing or decreasing fraud activity.
