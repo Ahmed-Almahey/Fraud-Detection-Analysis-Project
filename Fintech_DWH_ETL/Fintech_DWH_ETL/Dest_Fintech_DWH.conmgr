@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="LocalHost.Fintech_DWH"
+  DTS:DTSID="{09A440A3-F076-401A-BF8A-AB840E19704E}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=.;Initial Catalog=Fintech_DWH;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Fintech_DWH_ETL-{09A440A3-F076-401A-BF8A-AB840E19704E}LocalHost.Fintech_DWH;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
